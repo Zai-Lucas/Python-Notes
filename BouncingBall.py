@@ -1,5 +1,6 @@
 import sys
 import pygame
+import time
 
 pygame.init()
 
@@ -16,7 +17,7 @@ while True:
 		if event.type == pygame.QUIT:
 			sys.exit()
 
-	ballrect = ball.move(speed)
+	ballrect = ballrect.move(speed)
 	if ballrect.left < 0 or ballrect.right > width:
 		speed[0] = -speed[0]
 	if ballrect.top < 0 or ballrect.bottom > height:
@@ -25,4 +26,5 @@ while True:
 	screen.fill(black)
 	screen.blit(ball, ballrect)
 	pygame.display.flip()
+	time.sleep(.05)
 
